@@ -18,7 +18,7 @@ Por isso, a análise considera que avaliações baixas não são apenas indicado
 
 ## Metodologia resumida
 
-O estudo utiliza dados de pedidos, itens do pedido, avaliações, vendedores e produtos da base pública da Olist.
+O estudo utiliza dados de pedidos, itens do pedido, avaliações e vendedores da base pública da Olist.
 
 Principais tratamentos aplicados:
 
@@ -29,6 +29,8 @@ Principais tratamentos aplicados:
 - a visão final foi consolidada por `seller_id`.
 
 Para calcular satisfação, cada avaliação foi considerada uma única vez por combinação de pedido e vendedor. Esse tratamento evita que pedidos com múltiplos itens tenham peso maior na média de avaliação do vendedor.
+
+A base operacional possui 2.970 vendedores com pedidos entregues e receita consolidada. Para a segmentação de satisfação, foram considerados apenas os 2.965 vendedores com avaliação válida. Cinco vendedores possuem pedido entregue, mas não possuem avaliação registrada e, por isso, ficam fora da classificação binária entre detratores e não detratores.
 
 A receita foi calculada separadamente pela soma dos preços dos itens vendidos, pois cada item possui valor próprio dentro do pedido.
 
@@ -45,17 +47,17 @@ A classificação principal foi:
 
 ## Principais resultados
 
-Com a metodologia aplicada, foram analisados **2.970 vendedores**.
+Com a metodologia aplicada, foram analisados **2.965 vendedores com avaliação válida**.
 
 | Indicador | Resultado |
 |---|---:|
 | Vendedores detratores | 242 |
-| Participação dos detratores na base | 8,15% |
+| Participação dos detratores na base avaliada | 8,16% |
 | Participação dos detratores nos pedidos | 0,91% |
 | Participação dos detratores na receita | 1,83% |
 | Média por vendedor com detratores | 4,18 |
 | Média por vendedor sem detratores | 4,35 |
-| Receita média por vendedor não detrator | R$ 4.757 |
+| Receita média por vendedor não detrator | R$ 4.764 |
 | Receita média por vendedor detrator | R$ 1.000 |
 
 A leitura principal é que os vendedores detratores representam uma parcela pequena da base, dos pedidos e da receita. O risco identificado está menos associado ao volume financeiro e mais à possibilidade de impacto reputacional e perda de confiança no ecossistema.
@@ -78,7 +80,7 @@ Bibliotecas utilizadas:
 
 ## Base de dados
 
-A análise foi desenvolvida com o **Brazilian E-Commerce Public Dataset by Olist**, base pública com informações de pedidos, vendedores, produtos, pagamentos, avaliações e entregas do e-commerce brasileiro.
+A análise foi desenvolvida com o **Brazilian E-Commerce Public Dataset by Olist**, base pública com informações de pedidos, itens do pedido, vendedores, avaliações e entregas do e-commerce brasileiro.
 
 Fonte: [Kaggle - Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
 
